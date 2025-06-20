@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>ameucpubg</title>
+</head>
+<body>
+  <h1>Salam, burası PUBG UC satış saytıdır!</h1>
+</body>
+</html><!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UC Sifarişi | ameucpubg</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ffd700;
+    }
+
+    form {
+      background: #222;
+      padding: 20px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    input, select {
+      background: #333;
+      color: #fff;
+    }
+
+    button {
+      background: #ff4444;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #dd3333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>UC Sifarişi</h1>
+  <form onsubmit="sendToWhatsApp(event)">
+    <input type="text" id="pubgId" placeholder="PUBG ID" required>
+    <input type="text" id="contact" placeholder="WhatsApp nömrən və ya Email" required>
+    
+    <select id="ucPackage" required>
+      <option value="">UC Paketi seç</option>
+      <option value="60 UC">60 UC</option>
+      <option value="325 UC">325 UC</option>
+      <option value="660 UC">660 UC</option>
+      <option value="1800 UC">1800 UC</option>
+    </select>
+    
+    <select id="paymentMethod" required>
+      <option value="">Ödəniş üsulu seç</option>
+      <option value="Kartdan-karta">Kartdan-karta</option>
+      <option value="eManat terminal">eManat terminal</option>
+      <option value="Balans (bonus)">Balans (bonus)</option>
+    </select>
+
+    <button type="submit">Sifarişi göndər</button>
+  </form>
+
+  <script>
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      const id = document.getElementById('pubgId').value;
+      const contact = document.getElementById('contact').value;
+      const uc = document.getElementById('ucPackage').value;
+      const pay = document.getElementById('paymentMethod').value;
+
+      const msg = `🛒 Yeni UC sifarişi!\n\nPUBG ID: ${id}\nƏlaqə: ${contact}\nPaket: ${uc}\nÖdəniş: ${pay}`;
+      const phone = "994505975526"; // Adminin WhatsApp nömrəsi
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
