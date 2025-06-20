@@ -1,4 +1,22 @@
-<html lang="az">
+<form id="orderForm" style="margin-top: 20px;">
+  <input type="text" placeholder="PUBG ID" id="pubgId" required style="padding: 10px; font-size: 16px; border-radius: 5px; margin-bottom: 10px;"><br>
+  <select id="ucAmount" required style="padding: 10px; font-size: 16px; border-radius: 5px;">
+    <option value="">UC seçin</option>
+    <option value="60">60 UC</option>
+    <option value="325">325 UC</option>
+    <option value="660">660 UC</option>
+  </select><br><br>
+  <button type="submit" class="btn">Sifariş et</button>
+</form>
+
+<script>
+  document.getElementById("orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const pubgId = document.getElementById("pubgId").value;
+    const ucAmount = document.getElementById("ucAmount").value;
+    alert(`${pubgId} üçün ${ucAmount} UC sifariş edildi! (Demo)`); // Əsl sistem backendlə işləyəcək
+  });
+</script><html lang="az">
 <head>
   <meta charset="UTF-8">
   <title>ameucpubg</title>
